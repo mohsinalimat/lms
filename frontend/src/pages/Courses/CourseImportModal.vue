@@ -36,7 +36,7 @@
 					</div>
 					<div
 						v-else-if="uploading"
-						class="w-4/5 lg:w-2/5 bg-surface-white border rounded-md p-2"
+						class="w-4/5 lg:w-2/5 bg-surface-white border rounded-md p-2 my-4"
 					>
 						<div class="space-y-2">
 							<div class="font-medium">
@@ -142,12 +142,11 @@ const uploadFile = (e: Event) => {
 	uploader.on('progress', (data: { uploaded: number; total: number }) => {
 		uploaded.value = data.uploaded
 		total.value = data.total
-		console.log(uploaded.value, total.value)
 	})
 
 	uploader.on('error', (error: any) => {
 		uploading.value = false
-		toast.error(error)
+		toast.error(__('File upload failed. Please try again. {0}').format(error))
 		console.error('File upload error:', error)
 	})
 
@@ -156,7 +155,7 @@ const uploadFile = (e: Event) => {
 	})
 	uploader
 		.upload(file, {
-			private: 0,
+			private: 1,
 		})
 		.then((data: any) => {
 			zip.value = data
