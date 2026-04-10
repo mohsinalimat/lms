@@ -212,8 +212,11 @@
 				>
 					<CollapseSidebar
 						class="size-4 text-ink-gray-7 duration-300 stroke-1.5 ease-in-out cursor-pointer"
-						:class="{
-							'[transform:rotateY(180deg)]': sidebarStore.isSidebarCollapsed,
+						:style="{
+							transform:
+								isRtl !== sidebarStore.isSidebarCollapsed
+									? 'rotateY(180deg)'
+									: '',
 						}"
 						@click="toggleSidebar()"
 					/>
@@ -319,6 +322,7 @@ const router = useRouter()
 let onboardingDetails
 let isOnboardingStepsCompleted = false
 const readOnlyMode = window.read_only_mode
+const isRtl = document.documentElement.dir === 'rtl'
 const iconProps = {
 	strokeWidth: 1.5,
 	width: 16,
