@@ -18,9 +18,9 @@
 				{{ memberCount }} {{ __('Certified Members') }}
 			</div>
 			<div
-				class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4"
+				class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:gap-x-4"
 			>
-				<div class="flex items-center space-x-4">
+				<div class="flex items-center gap-x-4">
 					<FormControl
 						v-model="nameFilter"
 						:placeholder="__('Search by Name')"
@@ -40,7 +40,7 @@
 						/>
 					</div>
 				</div>
-				<div class="flex items-center space-x-4">
+				<div class="flex items-center gap-x-4">
 					<Switch
 						size="sm"
 						v-model="openToWork"
@@ -68,7 +68,7 @@
 				>
 					<div class="rounded-md hover:bg-surface-gray-2 px-3">
 						<div
-							class="flex items-center w-full space-x-3 py-2"
+							class="flex items-center w-full gap-x-3 py-2"
 							:class="{
 								'border-b': index < participants.data.length - 1,
 							}"
@@ -88,7 +88,7 @@
 									</div>
 								</div>
 								<div
-									class="flex items-center space-x-3 md:space-x-24 text-sm md:text-base mt-1.5"
+									class="flex items-center gap-x-3 md:gap-x-24 text-sm md:text-base mt-1.5"
 								>
 									<div class="text-ink-gray-5">
 										{{ participant.certificate_count }}

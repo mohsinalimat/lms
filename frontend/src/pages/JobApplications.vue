@@ -34,7 +34,7 @@
 					}"
 				>
 					<ListHeader
-						class="mb-2 grid items-center space-x-4 rounded bg-surface-gray-2 p-2"
+						class="mb-2 grid items-center gap-x-4 rounded bg-surface-gray-2 p-2"
 					>
 						<ListHeaderItem
 							:item="item"
@@ -60,7 +60,7 @@
 							<ListRowItem :item="item">
 								<div
 									v-if="column.key === 'full_name'"
-									class="flex items-center space-x-3"
+									class="flex items-center gap-x-3"
 								>
 									<Avatar
 										size="sm"

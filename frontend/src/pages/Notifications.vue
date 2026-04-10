@@ -3,7 +3,7 @@
 		class="sticky top-0 z-10 flex flex-col md:flex-row md:items-center justify-between border-b bg-surface-white px-3 py-2.5 sm:px-5"
 	>
 		<Breadcrumbs :items="breadcrumbs" />
-		<div class="flex items-center space-x-2">
+		<div class="flex items-center gap-x-2">
 			<Button
 				@click="markAllAsRead.submit"
 				:loading="markAllAsRead.loading"
@@ -23,7 +23,7 @@
 			v-if="notifications?.length"
 			v-for="log in notifications"
 			:key="log.name"
-			class="flex space-x-2 px-2 py-4"
+			class="flex gap-x-2 px-2 py-4"
 			:class="{
 				'cursor-pointer': log.link,
 				'items-center': !showDetails(log) && !isMentionOrComment(log),
@@ -40,7 +40,7 @@
 					<div class="flex items-center">
 						<div class="text-ink-gray-9" v-html="log.subject"></div>
 					</div>
-					<div class="flex items-center space-x-2">
+					<div class="flex items-center gap-x-2">
 						<div class="text-sm text-ink-gray-5">
 							{{ dayjs(log.creation).fromNow() }}
 						</div>
@@ -62,7 +62,7 @@
 				></div>
 				<div
 					v-else-if="showDetails(log)"
-					class="flex items-stretch border border-outline-gray-2 space-x-2 rounded-md"
+					class="flex items-stretch border border-outline-gray-2 gap-x-2 rounded-md"
 				>
 					<iframe
 						v-if="
@@ -70,7 +70,7 @@
 							log.document_details.video_link
 						"
 						:src="`https://www.youtube.com/embed/${log.document_details.video_link}`"
-						class="rounded-l-md w-72"
+						class="rounded-s-md w-72"
 					/>
 					<video
 						v-else-if="
@@ -78,7 +78,7 @@
 							log.document_details.video_link
 						"
 						:src="log.document_details.video_link"
-						class="rounded-l-md w-72"
+						class="rounded-s-md w-72"
 					/>
 					<div class="p-3">
 						<div
@@ -98,7 +98,7 @@
 						</div>
 						<div
 							v-if="log.document_details.start_date"
-							class="flex items-center space-x-2 text-sm mt-5"
+							class="flex items-center gap-x-2 text-sm mt-5"
 						>
 							<Calendar class="size-3 stroke-1.5" />
 							<span>
@@ -109,7 +109,7 @@
 						</div>
 						<div
 							v-if="log.document_details.start_time"
-							class="flex items-center space-x-2 text-sm mt-2"
+							class="flex items-center gap-x-2 text-sm mt-2"
 						>
 							<Clock class="size-3 stroke-1.5" />
 							<span>
@@ -123,7 +123,7 @@
 						>
 							<div
 								v-for="instructor in log.document_details.instructors"
-								class="flex items-center space-x-2"
+								class="flex items-center gap-x-2"
 							>
 								<Avatar
 									:size="'sm'"

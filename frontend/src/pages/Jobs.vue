@@ -44,7 +44,7 @@
 				</div>
 
 				<div
-					class="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0"
+					class="flex flex-col md:flex-row md:items-center md:gap-x-4 space-y-4 md:space-y-0"
 				>
 					<TabButtons
 						v-if="tabs.length > 1"
@@ -53,7 +53,7 @@
 						class="hidden lg:block"
 						@change="updateJobs"
 					/>
-					<div class="flex items-center space-x-4">
+					<div class="flex items-center gap-x-4">
 						<FormControl
 							type="text"
 							:placeholder="__('Search')"

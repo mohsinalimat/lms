@@ -4,7 +4,7 @@
 			class="sticky top-0 z-10 flex items-center justify-between border-b bg-surface-white px-3 py-2.5 sm:px-5"
 		>
 			<Breadcrumbs class="h-7" :items="breadcrumbs" />
-			<div class="flex items-center space-x-2">
+			<div class="flex items-center gap-x-2">
 				<Tooltip v-if="canGoZen()" :text="__('Zen Mode')">
 					<Button @click="goFullScreen()">
 						<template #icon>
@@ -66,9 +66,9 @@
 			</div>
 		</header>
 		<div class="grid md:grid-cols-[70%,30%] h-[94vh]">
-			<div v-if="lesson.data.no_preview" class="border-r">
+			<div v-if="lesson.data.no_preview" class="border-e">
 				<div class="shadow rounded-md w-3/4 mt-10 mx-auto text-center p-4">
-					<div class="flex items-center justify-center mt-4 space-x-2">
+					<div class="flex items-center justify-center mt-4 gap-x-2">
 						<LockKeyholeIcon class="size-4 stroke-2 text-ink-gray-5" />
 						<div class="text-lg font-semibold text-ink-gray-7">
 							{{ __('This lesson is locked') }}
@@ -113,7 +113,7 @@
 				}"
 			>
 				<div
-					class="border-r pt-5 pb-10 h-full"
+					class="border-e pt-5 pb-10 h-full"
 					:class="{
 						'w-full md:w-3/5 mx-auto border-none !pt-10': zenModeEnabled,
 					}"
@@ -129,7 +129,7 @@
 
 								<div
 									v-if="zenModeEnabled"
-									class="relative flex items-center space-x-2 text-sm mt-1 text-ink-gray-7 group w-fit mt-2"
+									class="relative flex items-center gap-x-2 text-sm mt-1 text-ink-gray-7 group w-fit mt-2"
 								>
 									<span>
 										{{ lesson.data.chapter_title }} -
@@ -137,7 +137,7 @@
 									</span>
 									<Info class="size-3" />
 									<div
-										class="hidden group-hover:block rounded bg-gray-900 px-2 py-1 text-xs text-white shadow-xl absolute left-0 top-full mt-2"
+										class="hidden group-hover:block rounded bg-gray-900 px-2 py-1 text-xs text-white shadow-xl absolute start-0 top-full mt-2"
 									>
 										{{ Math.ceil(lesson.data.membership.progress) }}%
 										{{ __('completed') }}
@@ -147,7 +147,7 @@
 
 							<div
 								v-if="zenModeEnabled"
-								class="flex items-center space-x-2 mt-2 md:mt-0"
+								class="flex items-center gap-x-2 mt-2 md:mt-0"
 							>
 								<Button @click="showDiscussionsInZenMode()">
 									<template #icon>
@@ -204,7 +204,7 @@
 
 						<div v-if="!zenModeEnabled" class="flex items-center mt-4 md:mt-2">
 							<span
-								class="h-6 mr-1"
+								class="h-6 me-1"
 								:class="{
 									'avatar-group overlap': lesson.data.instructors?.length > 1,
 								}"

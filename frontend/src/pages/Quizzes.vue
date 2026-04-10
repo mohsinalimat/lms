@@ -86,11 +86,11 @@
 			</ListSelectBanner>
 		</ListView>
 		<EmptyState v-else type="Quizzes" />
-		<div class="flex items-center justify-end space-x-3 mt-3">
+		<div class="flex items-center justify-end gap-x-3 mt-3">
 			<Button v-if="quizzes.hasNextPage" @click="quizzes.next()">
 				{{ __('Load More') }}
 			</Button>
-			<div v-if="quizzes.hasNextPage" class="h-8 border-l"></div>
+			<div v-if="quizzes.hasNextPage" class="h-8 border-s"></div>
 			<div class="text-ink-gray-5">
 				{{ quizzes.data?.length }} {{ __('of') }} {{ totalQuizzes.data }}
 			</div>
