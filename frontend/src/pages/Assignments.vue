@@ -182,6 +182,7 @@ watch([titleFilter, typeFilter], () => {
 	totalAssignments.update({
 		filters: assignmentFilter.value,
 	})
+	totalAssignments.reload()
 })
 
 const reloadAssignments = () => {

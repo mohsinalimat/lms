@@ -344,11 +344,11 @@ def get_evaluator_details(evaluator: str):
 
 
 @frappe.whitelist()
-def get_certified_participants(filters: dict = None, start: int = 0, page_length: int = 100):
+def get_certified_participants(filters: dict = None, start: int = 0, page_length: int = 40):
 	query = get_certification_query(filters)
 	query = query.orderby("issue_date", order=frappe.qb.desc).offset(start).limit(page_length)
 	participants = query.run(as_dict=True)
-
+	print(participants)
 	for participant in participants:
 		details = get_certified_participant_details(participant.member)
 		participant.update(details)
@@ -361,7 +361,7 @@ def get_certified_participant_details(member: str):
 	details = frappe.db.get_value(
 		"User",
 		member,
-		["full_name", "user_image", "username", "country", "headline", "open_to"],
+		["full_name", "user_image", "username", "creation", "headline", "open_to"],
 		as_dict=1,
 	)
 	details["certificate_count"] = count
@@ -374,12 +374,12 @@ def get_certification_query(filters: dict = None):
 
 	query = (
 		frappe.qb.from_(Certificate)
-		.select(Certificate.member, Certificate.issue_date)
-		.distinct()
+		.select(Certificate.member, fn.Max(Certificate.issue_date).as_("issue_date"))
 		.join(User)
 		.on(Certificate.member == User.name)
 		.where(Certificate.published == 1)
 		.where(User.enabled == 1)
+		.groupby(Certificate.member)
 	)
 
 	if filters:

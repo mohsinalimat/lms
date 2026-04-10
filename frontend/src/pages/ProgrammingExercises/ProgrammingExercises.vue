@@ -203,6 +203,7 @@ const updateList = () => {
 	totalExercises.update({
 		filters: filters,
 	})
+	totalExercises.reload()
 }
 
 const getFilters = () => {
