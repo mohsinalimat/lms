@@ -69,7 +69,7 @@
 			</ol>
 		</div>
 
-		<div v-if="quiz.data.duration" class="flex flex-col space-x-1 my-4">
+		<div v-if="quiz.data.duration" class="flex flex-col space-x-1 my-4 px-2">
 			<div class="mb-2">
 				<span class="text-ink-gray-9"> {{ __('Time') }}: </span>
 				<span class="font-semibold text-ink-gray-9">

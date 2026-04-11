@@ -6,6 +6,7 @@
 		<div class="space-x-2">
 			<router-link
 				v-if="exercises.data?.length"
+				class="hidden md:block"
 				:to="{
 					name: 'ProgrammingExerciseSubmissions',
 				}"
@@ -34,8 +35,10 @@
 			</Button>
 		</div>
 	</header>
-	<div class="p-5">
-		<div class="flex items-center justify-between mb-5">
+	<div class="py-5">
+		<div
+			class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 justify-between mb-5 px-5"
+		>
 			<div class="text-lg font-semibold text-ink-gray-9">
 				{{ __('{0} Exercises').format(exercises.data?.length) }}
 			</div>
@@ -69,7 +72,7 @@
 						showForm = true
 					},
 				}"
-				class="h-[79vh] border-b"
+				class="h-[71vh] lg:h-[79vh] px-5"
 			>
 				<ListHeader
 					class="mb-2 grid items-center rounded bg-surface-white border-b rounded-none p-2"
@@ -115,8 +118,10 @@
 				</ListSelectBanner>
 			</ListView>
 		</div>
-		<EmptyState v-else type="Programming Exercises" />
-		<div class="flex items-center justify-end space-x-3 mt-3">
+		<div v-else class="h-[45vh] lg:h-[53vh] px-5">
+			<EmptyState type="Programming Exercises" />
+		</div>
+		<div class="flex items-center justify-end space-x-3 px-5 pt-3 border-t">
 			<Button v-if="exercises.hasNextPage" @click="exercises.next()">
 				{{ __('Load More') }}
 			</Button>
@@ -203,6 +208,7 @@ const updateList = () => {
 	totalExercises.update({
 		filters: filters,
 	})
+	totalExercises.reload()
 }
 
 const getFilters = () => {
