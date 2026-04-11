@@ -98,7 +98,7 @@
 			</div>
 			<div
 				v-if="jobs.data?.length"
-				class="w-full h-[78vh] overflow-y-auto mx-auto p-5 pt-0"
+				class="w-full h-[61vh] lg:h-[78vh] overflow-y-auto mx-auto p-5 pt-0"
 			>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 					<router-link
@@ -113,7 +113,7 @@
 					</router-link>
 				</div>
 			</div>
-			<div v-else class="h-[50vh]">
+			<div v-else class="h-[32vh] lg:h-[50vh] px-5">
 				<EmptyState type="Job Openings" />
 			</div>
 			<div class="flex items-center justify-end space-x-3 border-t pt-3 px-5">

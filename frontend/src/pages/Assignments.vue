@@ -21,7 +21,9 @@
 	</header>
 
 	<div class="py-5">
-		<div class="flex items-center justify-between mb-5 mx-5">
+		<div
+			class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 justify-between mb-5 mx-5"
+		>
 			<div class="text-lg font-semibold text-ink-gray-9">
 				{{ __('{0} Assignments').format(assignments.data?.length) }}
 			</div>
@@ -52,7 +54,7 @@
 					showAssignmentForm = true
 				},
 			}"
-			class="h-[79vh] px-5"
+			class="h-[71vh] lg:h-[79vh] px-5"
 		>
 			<ListHeader
 				class="mb-2 grid items-center rounded bg-surface-white border-b rounded-none p-2"
@@ -250,7 +252,7 @@ const assignmentColumns = computed(() => {
 			icon: 'tag',
 		},
 		{
-			label: __('Modified'),
+			label: __('Updated On'),
 			key: 'modified',
 			width: 1,
 			align: 'right',

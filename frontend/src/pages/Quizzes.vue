@@ -27,7 +27,7 @@
 			:rows="quizzes.data"
 			row-key="name"
 			:options="{ showTooltip: false, selectable: true }"
-			class="h-[79vh] px-5"
+			class="h-[74.5vh] lg:h-[79vh] px-5"
 		>
 			<ListHeader
 				class="mb-2 grid items-center rounded bg-surface-white border-b rounded-none p-2"
@@ -85,7 +85,7 @@
 				</template>
 			</ListSelectBanner>
 		</ListView>
-		<div v-else class="h-[53vh]">
+		<div v-else class="h-[49vh] lg:h-[53vh] px-5">
 			<EmptyState type="Quizzes" />
 		</div>
 		<div class="flex items-center justify-end space-x-3 pt-3 border-t px-5">

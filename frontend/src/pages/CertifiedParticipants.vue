@@ -58,9 +58,9 @@
 		</div>
 		<div
 			v-if="participants.data?.length"
-			class="h-[76vh] overflow-y-auto mb-5 px-5"
+			class="h-[63vh] lg:h-[76vh] overflow-y-auto mb-5 px-5"
 		>
-			<div class="grid grid-cols-4 gap-5">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
 				<div
 					v-for="participant in participants.data"
 					class="flex flex-col border hover:border-outline-gray-3 rounded-lg p-3 text-ink-gray-9 cursor-pointer"
@@ -107,7 +107,7 @@
 				</div>
 			</div>
 		</div>
-		<div v-else class="h-[53vh]">
+		<div v-else class="h-[40vh] lg:h-[53vh] px-5">
 			<EmptyState type="Certified Members" />
 		</div>
 		<div class="flex items-center justify-end space-x-3 border-t pt-3 px-5">
