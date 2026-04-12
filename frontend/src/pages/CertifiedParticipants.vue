@@ -74,7 +74,7 @@
 					<div class="flex space-x-4">
 						<UserAvatar :user="participant" size="2xl" />
 						<div class="flex flex-col">
-							<div class="font-semibold">
+							<div class="font-semibold line-clamp-1">
 								{{ participant.full_name }}
 							</div>
 							<div class="text-sm leading-5 line-clamp-1 mb-4">
@@ -163,6 +163,7 @@ const participants = createListResource({
 	doctype: 'LMS Certificate',
 	url: 'lms.lms.api.get_certified_participants',
 	start: 0,
+	pageLength: 40,
 	cache: ['certified_participants'],
 })
 

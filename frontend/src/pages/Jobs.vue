@@ -213,6 +213,7 @@ const jobs = createListResource({
 	doctype: 'Job Opportunity',
 	start: 0,
 	cache: ['jobs'],
+	pageLength: 40,
 })
 
 const updateJobs = () => {
