@@ -174,7 +174,6 @@ import {
 	AxisChart,
 	createResource,
 	createListResource,
-	dayjs,
 	FormControl,
 	ListView,
 	ListHeader,
@@ -185,7 +184,8 @@ import {
 	Avatar,
 	Button,
 } from 'frappe-ui'
-import { computed, ref, watch } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
+import type dayjsType from 'dayjs'
 import { formatAmount } from '@/utils'
 import { Plus } from 'lucide-vue-next'
 import BatchFeedback from '@/pages/Batches/components/BatchFeedback.vue'
@@ -193,6 +193,7 @@ import BatchStudentProgress from '@/pages/Batches/components/BatchStudentProgres
 import NumberChartGraph from '@/components/NumberChartGraph.vue'
 import StudentModal from '@/components/Modals/StudentModal.vue'
 
+const dayjs = inject<typeof dayjsType>('$dayjs')!
 const searchFilter = ref<string | null>(null)
 const showEnrollmentModal = ref<boolean>(false)
 const showProgressModal = ref<boolean>(false)

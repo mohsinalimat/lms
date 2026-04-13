@@ -169,7 +169,6 @@ import {
 	Button,
 	createListResource,
 	createResource,
-	dayjs,
 	TabButtons,
 	usePageMeta,
 } from 'frappe-ui'
@@ -180,6 +179,7 @@ import { Bell, Calendar, Clock, X } from 'lucide-vue-next'
 import { formatTime } from '@/utils/'
 
 const { brand } = sessionStore()
+const dayjs = inject('$dayjs')
 const user = inject('$user')
 const socket = inject('$socket')
 const activeTab = ref('Unread')

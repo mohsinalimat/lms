@@ -264,7 +264,6 @@ import {
 	Button,
 	createListResource,
 	createResource,
-	dayjs,
 	Dropdown,
 	ECharts,
 	FormControl,
@@ -277,7 +276,8 @@ import {
 	Select,
 	Tooltip,
 } from 'frappe-ui'
-import { computed, ref, watch } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
+import type dayjsType from 'dayjs'
 import { Plus, Star } from 'lucide-vue-next'
 import { formatAmount } from '@/utils'
 import colors from '@/utils/frappe-ui-colors.json'
@@ -290,6 +290,7 @@ const props = defineProps<{
 	course: any
 }>()
 
+const dayjs = inject<typeof dayjsType>('$dayjs')!
 const showEnrollmentModal = ref(false)
 const searchFilter = ref<string | null>(null)
 const showProgressModal = ref(false)
