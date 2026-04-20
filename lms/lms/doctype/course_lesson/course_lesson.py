@@ -125,7 +125,18 @@ def save_progress(lesson: str, course: str, scorm_details: dict = None):
 				"scorm_content": "" if scorm_details.is_complete else scorm_details.scorm_content,
 			},
 		)
-
+	if (not progress_already_exists and quiz_completed and assignment_completed and not scorm_details) or (
+		scorm_details and scorm_details.is_complete and not lesson_already_completed
+	):
+		next_lesson = get_next_lesson(course, lesson)
+		if next_lesson:
+			frappe.db.set_value(
+				"LMS Enrollment",
+				membership,
+				"current_lesson",
+				next_lesson,
+				update_modified=False,
+			)
 	progress = get_course_progress(course)
 	if not is_demo_course(course):
 		capture("course_progress", "lms")
@@ -145,6 +156,33 @@ def save_progress(lesson: str, course: str, scorm_details: dict = None):
 	)
 
 	return progress
+
+
+def get_next_lesson(course: str, lesson: str):
+	lesson_reference = frappe.db.get_value(
+		"Lesson Reference", {"lesson": lesson}, ["idx", "parent"], as_dict=1
+	)
+	if not lesson_reference:
+		return None
+
+	total_lessons = frappe.db.count("Lesson Reference", {"parent": lesson_reference.parent})
+	if lesson_reference.idx < total_lessons:
+		return frappe.db.get_value(
+			"Lesson Reference", {"parent": lesson_reference.parent, "idx": lesson_reference.idx + 1}, "lesson"
+		)
+
+	total_chapters = frappe.db.count("Chapter Reference", {"parent": course})
+	current_chapter_reference = frappe.db.get_value(
+		"Chapter Reference", {"parent": course, "chapter": lesson_reference.parent}, ["idx"], as_dict=1
+	)
+
+	if current_chapter_reference.idx >= total_chapters:
+		return None
+
+	next_chapter = frappe.db.get_value(
+		"Chapter Reference", {"parent": course, "idx": current_chapter_reference.idx + 1}, "chapter"
+	)
+	return frappe.db.get_value("Lesson Reference", {"parent": next_chapter, "idx": 1}, "lesson")
 
 
 def get_quiz_progress(lesson):
