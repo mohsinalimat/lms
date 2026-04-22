@@ -32,7 +32,7 @@
 			>
 				<div class="flex items-center justify-between">
 					<div class="text-lg font-semibold text-ink-gray-9 md:mb-0">
-						{{ __('{0} {1} Jobs').format(jobCount.data, activeTab) }}
+						{{ __('{0} {1} Jobs').format(totalJobs, activeTab) }}
 					</div>
 					<TabButtons
 						v-if="tabs.length > 1"
@@ -123,7 +123,7 @@
 				<div v-if="jobs.hasNextPage" class="h-8 border-s"></div>
 				<div class="text-ink-gray-5">
 					{{ jobs.data?.length }} {{ __('of') }}
-					{{ jobCount.data }}
+					{{ totalJobs }}
 				</div>
 			</div>
 		</div>
@@ -160,6 +160,7 @@ const orFilters = ref({})
 const closedJobs = ref(0)
 const activeTab = ref('Open')
 const readOnlyMode = window.read_only_mode
+const totalJobs = ref(0)
 
 onMounted(() => {
 	getClosedJobCount()
@@ -190,14 +191,6 @@ const getClosedJobCount = () => {
 	})
 }
 
-const jobCount = createResource({
-	url: 'frappe.client.get_count',
-	params: {
-		doctype: 'Job Opportunity',
-		filters: filters.value,
-	},
-})
-
 const setFiltersFromURL = () => {
 	let queries = new URLSearchParams(location.search)
 	if (queries.has('type')) {
@@ -214,6 +207,10 @@ const jobs = createListResource({
 	start: 0,
 	cache: ['jobs'],
 	pageLength: 40,
+	transform(data) {
+		totalJobs.value = data.total
+		return data.jobs
+	},
 })
 
 const updateJobs = () => {
@@ -223,11 +220,6 @@ const updateJobs = () => {
 		orFilters: orFilters.value,
 	})
 	jobs.reload()
-	jobCount.update({
-		filters: filters.value,
-		orFilters: orFilters.value,
-	})
-	jobCount.reload()
 }
 
 const updateFilters = () => {

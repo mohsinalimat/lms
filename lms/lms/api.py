@@ -238,6 +238,8 @@ def get_job_opportunities(
 	if not filters:
 		filters = {}
 
+	total_jobs = frappe.db.count("Job Opportunity", filters, or_filters)
+
 	jobs = frappe.get_all(
 		"Job Opportunity",
 		filters=filters,
@@ -262,7 +264,10 @@ def get_job_opportunities(
 	for job in jobs:
 		job.description = frappe.utils.strip_html_tags(job.description)
 		job.applicants = frappe.db.count("LMS Job Application", {"job": job.name})
-	return jobs
+	return {
+		"jobs": jobs,
+		"total": total_jobs,
+	}
 
 
 @frappe.whitelist(allow_guest=True)
