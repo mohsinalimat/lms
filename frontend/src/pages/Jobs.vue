@@ -230,7 +230,7 @@ const updateJobs = () => {
 }
 
 const updateFilters = () => {
-	filters.value.status = 'Open'
+	filters.value.status = activeTab.value === 'Open' ? 'Open' : 'Closed'
 	updateJobTypeFilter()
 	updateWorkModeFilter()
 	updateSearchQueryFilter()
