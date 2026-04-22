@@ -32,7 +32,7 @@
 			>
 				<div class="flex items-center justify-between">
 					<div class="text-lg font-semibold text-ink-gray-9 md:mb-0">
-						{{ __('{0} {1} Jobs').format(totalJobs, activeTab) }}
+						{{ __('{0} {1} Jobs').format(jobCount.data ?? 0, activeTab) }}
 					</div>
 					<TabButtons
 						v-if="tabs.length > 1"
@@ -123,7 +123,7 @@
 				<div v-if="jobs.hasNextPage" class="h-8 border-s"></div>
 				<div class="text-ink-gray-5">
 					{{ jobs.data?.length }} {{ __('of') }}
-					{{ totalJobs }}
+					{{ jobCount.data ?? 0 }}
 				</div>
 			</div>
 		</div>
@@ -160,7 +160,6 @@ const orFilters = ref({})
 const closedJobs = ref(0)
 const activeTab = ref('Open')
 const readOnlyMode = window.read_only_mode
-const totalJobs = ref(0)
 
 onMounted(() => {
 	getClosedJobCount()
@@ -191,6 +190,17 @@ const getClosedJobCount = () => {
 	})
 }
 
+const jobCount = createResource({
+	url: 'lms.lms.api.get_job_opportunities_count',
+	cache: ['jobCount'],
+	makeParams() {
+		return {
+			filters: filters.value,
+			or_filters: orFilters.value,
+		}
+	},
+})
+
 const setFiltersFromURL = () => {
 	let queries = new URLSearchParams(location.search)
 	if (queries.has('type')) {
@@ -207,10 +217,6 @@ const jobs = createListResource({
 	start: 0,
 	cache: ['jobs'],
 	pageLength: 40,
-	transform(data) {
-		totalJobs.value = data.total
-		return data.jobs
-	},
 })
 
 const updateJobs = () => {
@@ -220,6 +226,7 @@ const updateJobs = () => {
 		orFilters: orFilters.value,
 	})
 	jobs.reload()
+	jobCount.reload()
 }
 
 const updateFilters = () => {
@@ -228,7 +235,6 @@ const updateFilters = () => {
 	updateWorkModeFilter()
 	updateSearchQueryFilter()
 	updateCountryFilter()
-	updateTabFilter()
 }
 
 const updateJobTypeFilter = () => {
@@ -264,18 +270,6 @@ const updateCountryFilter = () => {
 		filters.value.country = country.value
 	} else {
 		delete filters.value.country
-	}
-}
-
-const updateTabFilter = () => {
-	if (activeTab.value === 'Closed') {
-		filters.value.status = 'Closed'
-		if (!isModerator.value) {
-			filters.value.owner = user.data?.name
-		}
-	} else {
-		filters.value.status = 'Open'
-		delete filters.value.owner
 	}
 }
 
