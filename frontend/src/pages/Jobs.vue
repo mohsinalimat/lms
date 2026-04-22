@@ -32,7 +32,7 @@
 			>
 				<div class="flex items-center justify-between">
 					<div class="text-lg font-semibold text-ink-gray-9 md:mb-0">
-						{{ __('{0} {1} Jobs').format(jobCount.data, activeTab) }}
+						{{ __('{0} {1} Jobs').format(jobCount.data ?? 0, activeTab) }}
 					</div>
 					<TabButtons
 						v-if="tabs.length > 1"
@@ -123,7 +123,7 @@
 				<div v-if="jobs.hasNextPage" class="h-8 border-s"></div>
 				<div class="text-ink-gray-5">
 					{{ jobs.data?.length }} {{ __('of') }}
-					{{ jobCount.data }}
+					{{ jobCount.data ?? 0 }}
 				</div>
 			</div>
 		</div>
@@ -191,10 +191,13 @@ const getClosedJobCount = () => {
 }
 
 const jobCount = createResource({
-	url: 'frappe.client.get_count',
-	params: {
-		doctype: 'Job Opportunity',
-		filters: filters.value,
+	url: 'lms.lms.api.get_job_opportunities_count',
+	cache: ['jobCount'],
+	makeParams() {
+		return {
+			filters: filters.value,
+			or_filters: orFilters.value,
+		}
 	},
 })
 
@@ -223,20 +226,15 @@ const updateJobs = () => {
 		orFilters: orFilters.value,
 	})
 	jobs.reload()
-	jobCount.update({
-		filters: filters.value,
-		orFilters: orFilters.value,
-	})
 	jobCount.reload()
 }
 
 const updateFilters = () => {
-	filters.value.status = 'Open'
+	filters.value.status = activeTab.value === 'Open' ? 'Open' : 'Closed'
 	updateJobTypeFilter()
 	updateWorkModeFilter()
 	updateSearchQueryFilter()
 	updateCountryFilter()
-	updateTabFilter()
 }
 
 const updateJobTypeFilter = () => {
@@ -272,18 +270,6 @@ const updateCountryFilter = () => {
 		filters.value.country = country.value
 	} else {
 		delete filters.value.country
-	}
-}
-
-const updateTabFilter = () => {
-	if (activeTab.value === 'Closed') {
-		filters.value.status = 'Closed'
-		if (!isModerator.value) {
-			filters.value.owner = user.data?.name
-		}
-	} else {
-		filters.value.status = 'Open'
-		delete filters.value.owner
 	}
 }
 
