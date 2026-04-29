@@ -227,6 +227,7 @@
 			</div>
 		</div>
 		<HelpModal
+			data-testid="onboarding-help-modal"
 			v-if="showOnboarding && showHelpModal"
 			v-model="showHelpModal"
 			v-model:articles="articles"
