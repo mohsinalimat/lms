@@ -169,6 +169,7 @@ import {
 	Button,
 	createListResource,
 	createResource,
+	getCachedResource,
 	TabButtons,
 	usePageMeta,
 } from 'frappe-ui'
@@ -219,6 +220,10 @@ const readNotifications = createListResource({
 	cache: 'Read Notifications',
 })
 
+const refreshSidebarCount = () => {
+	getCachedResource('Unread Notifications Count')?.reload()
+}
+
 const markAsRead = createResource({
 	url: 'frappe.desk.doctype.notification_log.notification_log.mark_as_read',
 	makeParams(values) {
@@ -229,6 +234,7 @@ const markAsRead = createResource({
 	onSuccess(data) {
 		unReadNotifications.reload()
 		readNotifications.reload()
+		refreshSidebarCount()
 	},
 })
 
@@ -237,6 +243,7 @@ const markAllAsRead = createResource({
 	onSuccess(data) {
 		unReadNotifications.reload()
 		readNotifications.reload()
+		refreshSidebarCount()
 	},
 })
 
