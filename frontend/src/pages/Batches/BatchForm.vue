@@ -323,7 +323,6 @@ import {
 	createLMSCategory,
 	getMetaInfo,
 	openSettings,
-	sanitizeHTML,
 	updateMetaInfo,
 } from '@/utils'
 import { useRouter } from 'vue-router'
@@ -458,16 +457,7 @@ const formatTime = (timeStr) => {
 	return `${hours}:${minutes}`
 }
 
-const validateFields = () => {
-	Object.keys(batchDetail.doc).forEach((key) => {
-		if (typeof batchDetail.doc[key] === 'string') {
-			batchDetail.doc[key] = sanitizeHTML(batchDetail.doc[key])
-		}
-	})
-}
-
 const submitBatch = () => {
-	validateFields()
 	updateBatch()
 }
 
