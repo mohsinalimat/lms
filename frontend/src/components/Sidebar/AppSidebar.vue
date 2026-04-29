@@ -674,6 +674,7 @@ watch(settingsStore.settings, () => {
 const updateSidebarLinks = () => {
 	sidebarLinks.value = getSidebarLinks()
 	updateSidebarLinksVisibility()
+	updateUnreadCount()
 }
 
 const redirectToWebsite = () => {
