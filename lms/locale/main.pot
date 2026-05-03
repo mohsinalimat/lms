@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Learning VERSION\n"
 "Report-Msgid-Bugs-To: jannat@frappe.io\n"
-"POT-Creation-Date: 2026-04-24 16:20+0000\n"
-"PO-Revision-Date: 2026-04-24 16:20+0000\n"
+"POT-Creation-Date: 2026-05-01 16:20+0000\n"
+"PO-Revision-Date: 2026-05-01 16:20+0000\n"
 "Last-Translator: jannat@frappe.io\n"
 "Language-Team: jannat@frappe.io\n"
 "MIME-Version: 1.0\n"
@@ -229,7 +229,7 @@ msgstr ""
 msgid "Add a Lesson"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:596
+#: frontend/src/components/Sidebar/AppSidebar.vue:597
 msgid "Add a chapter"
 msgstr ""
 
@@ -241,11 +241,11 @@ msgstr ""
 msgid "Add a keyword and press enter"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:597
+#: frontend/src/components/Sidebar/AppSidebar.vue:598
 msgid "Add a lesson"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:611
+#: frontend/src/components/Sidebar/AppSidebar.vue:612
 msgid "Add a program"
 msgstr ""
 
@@ -269,7 +269,7 @@ msgstr ""
 msgid "Add at least one possible answer for this question: {0}"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:560
+#: frontend/src/components/Sidebar/AppSidebar.vue:561
 msgid "Add courses to your batch"
 msgstr ""
 
@@ -281,7 +281,7 @@ msgstr ""
 msgid "Add quiz to this video"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:539
+#: frontend/src/components/Sidebar/AppSidebar.vue:540
 msgid "Add students to your batch"
 msgstr ""
 
@@ -293,11 +293,11 @@ msgstr ""
 msgid "Add web page to sidebar"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:467
+#: frontend/src/components/Sidebar/AppSidebar.vue:468
 msgid "Add your first chapter"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:487
+#: frontend/src/components/Sidebar/AppSidebar.vue:488
 msgid "Add your first lesson"
 msgstr ""
 
@@ -574,7 +574,7 @@ msgid "Assessment {0} has already been added to this batch."
 msgstr ""
 
 #. Label of the show_assessments (Check) field in DocType 'LMS Settings'
-#: frontend/src/components/Sidebar/AppSidebar.vue:614
+#: frontend/src/components/Sidebar/AppSidebar.vue:615
 #: frontend/src/pages/Batches/components/AdminBatchDashboard.vue:22
 #: frontend/src/pages/Batches/components/Assessments.vue:5
 #: lms/lms/doctype/lms_settings/lms_settings.json
@@ -662,7 +662,7 @@ msgid "Assignment will appear at the bottom of the lesson."
 msgstr ""
 
 #: frontend/src/components/Settings/Badges.vue:163
-#: frontend/src/components/Sidebar/AppSidebar.vue:618
+#: frontend/src/components/Sidebar/AppSidebar.vue:619
 #: frontend/src/pages/Assignments.vue:284
 #: frontend/src/pages/Assignments.vue:291 lms/www/_lms.py:280
 msgid "Assignments"
@@ -1149,7 +1149,7 @@ msgstr ""
 #. Label of a Card Break in the Learning Workspace
 #. Label of a Link in the Learning Workspace
 #: frontend/src/components/Modals/Event.vue:431
-#: frontend/src/components/Sidebar/AppSidebar.vue:622
+#: frontend/src/components/Sidebar/AppSidebar.vue:623
 #: frontend/src/pages/Batches/BatchForm.vue:91
 #: frontend/src/pages/Batches/BatchForm.vue:113
 #: frontend/src/pages/Batches/Batches.vue:85
@@ -2054,15 +2054,15 @@ msgstr ""
 msgid "Create a Quiz"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:604
+#: frontend/src/components/Sidebar/AppSidebar.vue:605
 msgid "Create a batch"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:595
+#: frontend/src/components/Sidebar/AppSidebar.vue:596
 msgid "Create a course"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:605
+#: frontend/src/components/Sidebar/AppSidebar.vue:606
 msgid "Create a live class"
 msgstr ""
 
@@ -2074,15 +2074,15 @@ msgstr ""
 msgid "Create an Assignment"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:529
+#: frontend/src/components/Sidebar/AppSidebar.vue:530
 msgid "Create your first batch"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:455
+#: frontend/src/components/Sidebar/AppSidebar.vue:456
 msgid "Create your first course"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:507
+#: frontend/src/components/Sidebar/AppSidebar.vue:508
 msgid "Create your first quiz"
 msgstr ""
 
@@ -2090,11 +2090,11 @@ msgstr ""
 msgid "Created"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:601
+#: frontend/src/components/Sidebar/AppSidebar.vue:602
 msgid "Creating a batch"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:592
+#: frontend/src/components/Sidebar/AppSidebar.vue:593
 msgid "Creating a course"
 msgstr ""
 
@@ -2123,7 +2123,7 @@ msgstr ""
 msgid "Curriculum"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:628
+#: frontend/src/components/Sidebar/AppSidebar.vue:629
 msgid "Custom Certificate Templates"
 msgstr ""
 
@@ -3742,8 +3742,8 @@ msgstr ""
 msgid "Interest"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:584
-#: frontend/src/components/Sidebar/AppSidebar.vue:587
+#: frontend/src/components/Sidebar/AppSidebar.vue:585
+#: frontend/src/components/Sidebar/AppSidebar.vue:588
 msgid "Introduction"
 msgstr ""
 
@@ -3775,7 +3775,7 @@ msgstr ""
 msgid "Invalid file path in package"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:518
+#: frontend/src/components/Sidebar/AppSidebar.vue:519
 msgid "Invite your team and students"
 msgstr ""
 
@@ -3812,7 +3812,7 @@ msgstr ""
 msgid "Issue Date"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:625
+#: frontend/src/components/Sidebar/AppSidebar.vue:626
 msgid "Issue a Certificate"
 msgstr ""
 
@@ -4243,7 +4243,7 @@ msgstr ""
 msgid "Learning Consistency"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:609
+#: frontend/src/components/Sidebar/AppSidebar.vue:610
 msgid "Learning Paths"
 msgstr ""
 
@@ -4895,7 +4895,7 @@ msgstr ""
 msgid "Monday"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:633
+#: frontend/src/components/Sidebar/AppSidebar.vue:634
 msgid "Monetization"
 msgstr ""
 
@@ -5467,7 +5467,7 @@ msgstr ""
 msgid "PDF"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:420
+#: frontend/src/components/Sidebar/AppSidebar.vue:421
 msgid "Page deleted successfully"
 msgstr ""
 
@@ -6313,7 +6313,7 @@ msgstr ""
 msgid "Quiz will appear at the bottom of the lesson."
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:617
+#: frontend/src/components/Sidebar/AppSidebar.vue:618
 #: frontend/src/pages/QuizForm.vue:388 frontend/src/pages/Quizzes.vue:318
 #: frontend/src/pages/Quizzes.vue:328 lms/www/_lms.py:258
 msgid "Quizzes"
@@ -6488,7 +6488,7 @@ msgid "Role updated successfully"
 msgstr ""
 
 #: frontend/src/components/Modals/NewMemberModal.vue:45
-#: frontend/src/components/Sidebar/AppSidebar.vue:645
+#: frontend/src/components/Sidebar/AppSidebar.vue:646
 #: frontend/src/pages/Profile.vue:272
 msgid "Roles"
 msgstr ""
@@ -6807,16 +6807,16 @@ msgstr ""
 msgid "Set your Password"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:588
+#: frontend/src/components/Sidebar/AppSidebar.vue:589
 msgid "Setting up"
 msgstr ""
 
-#: frontend/src/components/Sidebar/AppSidebar.vue:638
+#: frontend/src/components/Sidebar/AppSidebar.vue:639
 msgid "Setting up payment gateway"
 msgstr ""
 
 #: frontend/src/components/Settings/Settings.vue:9
-#: frontend/src/components/Sidebar/AppSidebar.vue:643
+#: frontend/src/components/Sidebar/AppSidebar.vue:644
 #: frontend/src/pages/Courses/CourseDetail.vue:121
 #: frontend/src/pages/ProfileRoles.vue:4
 #: frontend/src/pages/ProgrammingExercises/ProgrammingExerciseSubmission.vue:19
